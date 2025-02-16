@@ -15,7 +15,7 @@ with open('scaler.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
 # Streamlit app
-st.title('Resume Shortlist')
+st.title('Job Prediction')
 
 # User input
 Education_Level = st.selectbox('Education Level', onehot_encoder_edu.categories_[0])
@@ -53,3 +53,18 @@ if st.button('Predict'):
         st.success("You are suitable for the job!")
     else:
         st.error("You are not suitable for the job.")
+
+# Hide the GitHub link or any specific element
+st.markdown(
+    """
+    <style>
+    .github-link {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+st.markdown('<a class="github-link" href="https://github.com/your-repo">GitHub</a>', unsafe_allow_html=True)
